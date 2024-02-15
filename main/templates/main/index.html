@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  
-<head>
-  <meta charset="UTF-8">
-  <title>{{ title }}</title>
-</head>
+{% extends "main/base.html" %}
+{% load static %}
 
-<body>
-</body>
+{% block footer_css %}
+    <link rel="stylesheet" href="{% static 'css/my_footer_css.css'%}">
+{% endblock  %}
 
-</html>
+{% block content %}
+    <h1 class="mt-5 pt-5 emp-title"><strong>{{ brandname }}</strong></h1>
+    <p class="emp-description"><strong>{{ content }}</strong></p>
+{% endblock content %}
+
+{% block footer %}
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Pro100grammer[Oleh Sencha] 2024</p>
+        </div>
+    </footer>
+{% endblock  %}
