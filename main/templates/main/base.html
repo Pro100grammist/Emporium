@@ -54,7 +54,7 @@
                                 <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
                                 <li><a class="dropdown-item  text-white" href="users/profile.html">Особистий кабінет</a>
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="#">Адмінпанель</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'admin:index' %}">Адмінпанель</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -81,13 +81,13 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Інтер'єр</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Кухня</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Спальня</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Гостинна</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Офіс</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Фурнітура</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Декор</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Інтер'єр</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Кухня</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Спальня</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Гостинна</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Офіс</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Фурнітура</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Декор</a></li>
                     </ul>
                 </div>
                 <div>

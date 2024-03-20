@@ -1,10 +1,10 @@
-from django.urls import path, URLResolver
+from django.urls import URLPattern, path
 
 from main import views
 
 app_name = "main"
 
-urlpatterns: list[URLResolver] = [
+urlpatterns: list[URLPattern] = [
     path("", views.index, name="home"),
     path("about/", views.about, name="about"),
 ]
