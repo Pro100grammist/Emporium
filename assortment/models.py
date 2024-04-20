@@ -14,6 +14,9 @@ class Categories(models.Model):
         db_table = 'category'
         verbose_name = 'Product group'
 
+    def __str__(self):
+        return self.name
+
 
 class Products(models.Model):
     name = models.CharField(max_length=200, unique=True)
@@ -27,4 +30,7 @@ class Products(models.Model):
 
     class Meta:
         db_table = 'product'
+        verbose_name = 'Product'
 
+    def __str__(self):
+        return f'{self.name} Amount : {self.amount}'

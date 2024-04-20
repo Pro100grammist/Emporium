@@ -1,13 +1,20 @@
-from re import T
+from re import I, T
+from unicodedata import category
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from assortment.models import Categories
+
 
 def index(request) -> HttpResponse:
+
+    categories = Categories.objects.all()
+
     context: dict[str, str] = {
         'title': 'Home - Головна',
         'brandname': 'EMPORIUM',
         'content': 'Магазин антикварного інтер\'єру',
+        'categories': categories
     }
     return render(request, 'main/index.html', context)
 
