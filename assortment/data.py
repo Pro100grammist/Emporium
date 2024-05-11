@@ -71,4 +71,10 @@ goods = [
         "description": "Португальський вінтажний дубовий столик 19 сторіччя.",
         "price": 1250.00,
     },
+    {
+        "image": "images/goods/set of tea table and three chairs.jpg",
+        "name": "Чайний столик та три стільці",
+        "description": "Комплект із трьох стільців і вінтажний столик для вітальні.",
+        "price": 1499.00,
+    },
 ]

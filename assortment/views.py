@@ -1,11 +1,17 @@
 from django.shortcuts import render
 from django.template import context
 
-from .data import goods
+from .models import Products
 
 
 def catalog(request):
-    context = {"title": "Emporium - Catalog", "goods": goods}
+
+    goods = Products.objects.all()
+
+    context = {
+        "title": "Emporium - Catalog",
+        "goods": goods
+    }
     return render(request, "assortment/catalog.html", context=context)
 
 
