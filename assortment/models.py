@@ -13,6 +13,7 @@ class Categories(models.Model):
     class Meta:
         db_table = 'category'
         verbose_name = 'Product group'
+        ordering = ('id',)
 
     def __str__(self):
         return self.name
