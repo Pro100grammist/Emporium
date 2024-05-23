@@ -32,5 +32,11 @@ class Products(models.Model):
         db_table = 'product'
         verbose_name = 'Product'
 
+    def display_id(self):
+        return f'{self.id:05}'
+
+    def discount_price(self):
+        return round(self.price * (1 - self.discount / 100), 2) if self.discount else self.price
+
     def __str__(self):
         return f'{self.name} Amount : {self.amount}'

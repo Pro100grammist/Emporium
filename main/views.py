@@ -8,13 +8,10 @@ from assortment.models import Categories
 
 def index(request) -> HttpResponse:
 
-    categories = Categories.objects.all()
-
     context: dict[str, str] = {
         'title': 'Home - Головна',
         'brandname': 'EMPORIUM',
         'content': 'Магазин антикварного інтер\'єру',
-        'categories': categories
     }
     return render(request, 'main/index.html', context)
 
