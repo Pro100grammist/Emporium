@@ -8,7 +8,9 @@ from django.template import context
 from .models import Products
 
 
-def catalog(request, category_slug, page=1) -> HttpResponse:
+def catalog(request, category_slug) -> HttpResponse:
+
+    page = request.GET.get('page', 1)
 
     if category_slug == "interior":
         goods: Manager[Products] = Products.objects.all()
@@ -16,7 +18,7 @@ def catalog(request, category_slug, page=1) -> HttpResponse:
         goods: Manager[Products] = get_list_or_404(Products.objects.filter(category__slug=category_slug))
 
     paginator = Paginator(goods, per_page=6)
-    current_page = paginator.page(page)
+    current_page = paginator.page(int(page))
 
     context = {
         "title": "Emporium - Catalog",
