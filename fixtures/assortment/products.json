@@ -1,0 +1,184 @@
+[
+    {
+        "model": "assortment.products",
+        "pk": 1,
+        "fields": {
+            "name": "Чайний столик та три стільці",
+            "slug": "chajnij-stolik-ta-tri-stilci",
+            "description": "Комплект із трьох стільців і вінтажний столик для вітальні.",
+            "image": "assortment_images/set_of_tea_table_and_three_chairs.jpg",
+            "price": "1499.00",
+            "discount": "0",
+            "amount": 1,
+            "category": 6
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 2,
+        "fields": {
+            "name": "Кавовий столик",
+            "slug": "kavovij-stolik",
+            "description": "Набір зі столу і двох стільців у мінімалістичному стилі.",
+            "image": "assortment_images/сoffee_table.jpg",
+            "price": "799.00",
+            "discount": "0",
+            "amount": 1,
+            "category": 6
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 3,
+        "fields": {
+            "name": "Двоспальне ліжко",
+            "slug": "dvospalne-lizhko",
+            "description": "Ліжко двоспальне з надголовником у стилі рококо.",
+            "image": "assortment_images/double_bed.jpg",
+            "price": "2999.00",
+            "discount": "0",
+            "amount": 1,
+            "category": 5
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 4,
+        "fields": {
+            "name": "Кухонний стіл",
+            "slug": "kuhonnij-stil",
+            "description": "Кухонный стол для готування",
+            "image": "assortment_images/kitchen_table_2.jpg",
+            "price": "700.00",
+            "discount": "0",
+            "amount": 1,
+            "category": 4
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 5,
+        "fields": {
+            "name": "Журнальний столик",
+            "slug": "zhurnalnij-stolik",
+            "description": "Італійський журнальний столик 19 сторіччя.",
+            "image": "assortment_images/strange_table_RyD6Gha.jpg",
+            "price": "530.00",
+            "discount": "0",
+            "amount": 2,
+            "category": 7
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 6,
+        "fields": {
+            "name": "Кутовий диван для вітальні",
+            "slug": "kutovij-divan-dlya-vitalni",
+            "description": "Кутовий диван для вітальні, різний, в стилі барокко.",
+            "image": "assortment_images/corner_sofa.jpg",
+            "price": "3600.00",
+            "discount": "0",
+            "amount": 1,
+            "category": 6
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 7,
+        "fields": {
+            "name": "Приліжковий столик",
+            "slug": "prilizhkovij-stolik",
+            "description": "Приліжковий столик із двома висувними шухлядами.",
+            "image": "assortment_images/bedside_table.jpg",
+            "price": "455.00",
+            "discount": "0",
+            "amount": 1,
+            "category": 5
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 8,
+        "fields": {
+            "name": "Диван",
+            "slug": "divan",
+            "description": "Диван для кабінету, різний, матеріал: шкіра.",
+            "image": "assortment_images/sofa.jpg",
+            "price": "2199.00",
+            "discount": "0",
+            "amount": 1,
+            "category": 7
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 9,
+        "fields": {
+            "name": "Стілець",
+            "slug": "stilec",
+            "description": "Стілець в стилі рококо 18 сторіччя.",
+            "image": "assortment_images/office_chair.jpg",
+            "price": "830.00",
+            "discount": "0",
+            "amount": 1,
+            "category": 7
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 10,
+        "fields": {
+            "name": "Підставка",
+            "slug": "pidstavka",
+            "description": "Підставка для вазона.",
+            "image": "assortment_images/plants.jpg",
+            "price": "399.00",
+            "discount": "10",
+            "amount": 4,
+            "category": 6
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 11,
+        "fields": {
+            "name": "Телефон",
+            "slug": "telefon",
+            "description": "Вінтажний антикварний телефон з циферблатом.",
+            "image": "assortment_images/phone_x0RcOcG.jpg",
+            "price": "1500.00",
+            "discount": "0",
+            "amount": 2,
+            "category": 7
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 12,
+        "fields": {
+            "name": "Вінтажний столик",
+            "slug": "vintazhnij-stolik",
+            "description": "Португальський вінтажний дубовий столик 19 сторіччя.",
+            "image": "assortment_images/strange_table.jpg",
+            "price": "1250.00",
+            "discount": "0",
+            "amount": 1,
+            "category": 5
+        }
+    },
+    {
+        "model": "assortment.products",
+        "pk": 13,
+        "fields": {
+            "name": "Tea table and two chairs",
+            "slug": "tea-table-and-two-chairs",
+            "description": "Чайний столик та два стільці",
+            "image": "assortment_images/set_of_tea_table_and_two_chairs.jpg",
+            "price": "1750.00",
+            "discount": "20",
+            "amount": 1,
+            "category": 6
+        }
+    }
+]
