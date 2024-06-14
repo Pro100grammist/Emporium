@@ -45,7 +45,7 @@
                             <a class="nav-link  text-white" href="carts/cart.html">Корзина</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="users/login.html">Увійти</a>
+                            <a class="nav-link  text-white" href="{% url 'users:login' %}">Увійти</a>
                         </li>
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button"
@@ -54,13 +54,13 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
-                                <li><a class="dropdown-item  text-white" href="users/profile.html">Особистий кабінет</a>
+                                <li><a class="dropdown-item  text-white" href="{% url 'users:profile' %}">Особистий кабінет</a>
                                 </li>
                                 <li><a class="dropdown-item  text-white" href="{% url 'admin:index' %}">Адмінпанель</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="#">Вийти</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'users:logout' %}">Вийти</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -87,14 +87,6 @@
                         {% for cat in categories %}
                             <li><a class="dropdown-item text-white" href="{% url 'catalog:index' cat.slug %}">{{cat.name}}</a></li>
                         {% endfor %}
-                        
-                        {% comment %} <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Інтер'єр</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Кухня</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Спальня</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Гостинна</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Офіс</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Фурнітура</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Декор</a></li> {% endcomment %}
                     </ul>
                 </div>
                 <div>
@@ -172,6 +164,7 @@
             <div class="row mt-1">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-10">
+                    {% include "includes/notifications.html" %}
                     {% block content %}{% endblock content %}
                 </div>
             </div>
