@@ -1,12 +1,13 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.urls import reverse
 
-from .forms import CustomLoginForm
+from .forms import CustomLoginForm, UserRegistrationForm
 
 
 def login(request):
+
     if request.method == 'POST':
         form = CustomLoginForm(data=request.POST)
         if form.is_valid():
@@ -28,8 +29,18 @@ def login(request):
 
 
 def registration(request):
+    if request.method == "POST":
+        form = UserRegistrationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.instance
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse('main:home'))
+    else:
+        form = UserRegistrationForm()
     context = {
-        'title': 'Home - Реєстрація'
+        'title': 'Home - Реєстрація',
+        'form': form
     }
     return render(request, 'users/registration.html', context)
 
@@ -42,7 +53,9 @@ def profile(request):
 
 
 def logout(request):
+    auth.logout(request)
+
     context = {
         'title': 'Home - Вихід'
     }
-    return render(request, '', context)
+    return redirect(reverse('main:home'))
