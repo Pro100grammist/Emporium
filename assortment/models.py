@@ -1,9 +1,5 @@
-from ast import mod
-from email.policy import default
-from enum import unique
-from re import M, T
-from tabnanny import verbose
 from django.db import models
+from django.db.models import DecimalField
 
 
 class Categories(models.Model):
@@ -24,7 +20,7 @@ class Products(models.Model):
     slug = models.SlugField(max_length=250, unique=True, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='assortment_images', blank=True, null=True)
-    price = models.DecimalField(default=0, max_digits=8, decimal_places=2)
+    price: DecimalField = models.DecimalField(default=0, max_digits=8, decimal_places=2)
     discount = models.DecimalField(default=0, max_digits=2, decimal_places=0)
     amount = models.PositiveIntegerField(default=0)
     category = models.ForeignKey(to=Categories, on_delete=models.CASCADE)
@@ -37,7 +33,7 @@ class Products(models.Model):
         return f'{self.id:05}'
 
     def discount_price(self):
-        return round(self.price * (1 - self.discount / 100), 2) if self.discount else self.price
+        return self.price if not self.discount else round(self.price * (1 - self.discount / 100), 2)
 
     def __str__(self):
         return f'{self.name} Amount : {self.amount}'

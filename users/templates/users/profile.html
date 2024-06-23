@@ -11,35 +11,76 @@
             <div class="col-md-5">
                 <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
                     <h3 class="text-center mb-4">Профіль користувача</h3>
-                    <form>
+                    <form action="{% url 'users:profile'%}" method= 'post' enctype="multipart/form-data">
+                        {% csrf_token %}
                         <div class="row">
+
                             <div class="col-md-12 mb-3 text-center">
-                                <img src="{% static "images/baseavatar.jpg" %}"
-                                    alt="Аватар користувача" class="img-fluid rounded-circle"
-                                    style="max-width: 150px;">
-                                <input type="file" class="form-control mt-3" id="avatar"
+                                {% if user.image %}
+                                    <img src="{{ user.image.url}}"
+                                        alt="Аватар користувача" class="img-fluid rounded-circle"
+                                        style="max-width: 150px;">
+                                
+                                {% else %}
+                                    <img src="{% static "images/baseavatar.jpg" %}"
+                                        alt="Аватар користувача" class="img-fluid rounded-circle"
+                                        style="max-width: 150px;">
+                                {% endif %}
+                                
+                                <input type="file" class="form-control mt-3" id="id_image"
+                                    name="image"
                                     accept="image/*">
+                                    {% if form.image.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.image.errors}}</div>
+                                    {% endif %}
                             </div>
+
                             <div class="col-md-12 mb-3">
-                                <label for="firstName" class="form-label">Ім'я*</label>
-                                <input type="text" class="form-control" id="firstName"
-                                    placeholder="Введіть Ваше ім'я" value="" required>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="lastName" class="form-label">Прізвище*</label>
-                                <input type="text" class="form-control" id="lastName"
-                                    placeholder="Введіть Ваше прізвище" value="" required>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="username" class="form-label">Ім'я користувача*</label>
-                                <input type="text" class="form-control" id="username"
-                                    placeholder="Введиіть Ваше ім'я користувача" value="" required>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="email" class="form-label">Email*</label>
-                                <input type="email" class="form-control" id="email"
-                                    placeholder="Введіть Ваш email *youremail@example.com" value=""
+                                <label for="id_first_name" class="form-label">Ім'я*</label>
+                                <input type="text" class="form-control" id="id_first_name"
+                                    name="first_name"
+                                    placeholder="Введіть Ваше ім'я" 
+                                    value="{{ form.first_name.value}}" 
                                     required>
+                                    {% if form.first_name.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.first_name.errors}}</div>
+                                    {% endif %}
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label for="id_last_name" class="form-label">Прізвище*</label>
+                                <input type="text" class="form-control" id="id_last_name"
+                                    name="last_name"
+                                    placeholder="Введіть Ваше прізвище" 
+                                    value="{{ form.last_name.value}}" 
+                                    required>
+                                    {% if form.last_name.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.last_name.errors}}</div>
+                                    {% endif %}
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label for="id_username" class="form-label">Ім'я користувача*</label>
+                                <input type="text" class="form-control" id="id_username"
+                                    name="username"
+                                    placeholder="Введиіть Ваше ім'я користувача" 
+                                    value="{{form.username.value}}" 
+                                    required>
+                                    {% if form.username.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
+                                    {% endif %}
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label for="id_email" class="form-label">Email*</label>
+                                <input type="email" class="form-control" id="id_email"
+                                    name="email"
+                                    placeholder="Введіть Ваш email *youremail@example.com" 
+                                    value="{{form.email.value}}"
+                                    required>
+                                    {% if form.email.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.email.errors}}</div>
+                                    {% endif %}
                             </div>
                         </div>
                         <button type="submit" class="btn btn-dark">Зберегти</button>
@@ -55,21 +96,21 @@
 
                     </div>
                     <a class="btn btn-dark" href="orders/create_order.html">
-                        Оформить заказ
+                        Оформити замовлення
                     </a>
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                    <h3 class="text-center mb-4">Мои заказы</h3>
+                    <h3 class="text-center mb-4">Мої замовлення</h3>
 
                     <div class="container">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading1">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                                        Заказ № 256 - 09 сентября 2023 9:04 | Статус:<strong class="mx-2"> В обработке</strong>
+                                        Замовлення № 001 - 01 січня 2024 00:04 | Статус:<strong class="mx-2"> Обробляється</strong>
                                     </button>
                                 </h2>
                                 <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionExample">
@@ -78,24 +119,24 @@
                                             <thead>
                                                 <tr>
                                                     <th>Товар</th>
-                                                    <th>Количество</th>
-                                                    <th>Цена</th>
-                                                    <th>Общая стоимость</th>
+                                                    <th>Кількість</th>
+                                                    <th>Ціна</th>
+                                                    <th>Загальна вартість</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><a class="text-white" href="#">Комплект стол и три стула</a></td>
+                                                    <td><a class="text-white" href="#">Меблевий гарнітур "Барокко Стайл"</a></td>
                                                     <td>1</td>
-                                                    <td>255.00 $</td>
-                                                    <td>255.00 $</td>
+                                                    <td>4255.00 $</td>
+                                                    <td>4255.00 $</td>
                                                     
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <div class="d-flex justify-content-between">
-                                            <p><strong>Итого:</strong></p>
-                                            <p><strong>255.00 $</strong></p>
+                                            <p><strong>Всього:</strong></p>
+                                            <p><strong>4255.00 $</strong></p>
 
                                         </div>
                                     </div>
@@ -104,7 +145,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading2">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        Заказ № 248 - 01 августа 2023 11:28 | Статус: <strong>Получен</strong>
+                                        Замовлення № 000 - 01 грудня 2023 12:24 | Статус: <strong> Отримано</strong>
                                     </button>
                                 </h2>
                                 <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
@@ -113,17 +154,17 @@
                                             <thead>
                                                 <tr>
                                                     <th>Товар</th>
-                                                    <th>Количество</th>
-                                                    <th>Цена</th>
-                                                    <th>Общая стоимость</th>
+                                                    <th>Кількість</th>
+                                                    <th>Ціна</th>
+                                                    <th>Загальна вартість</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><a class="text-white" href="#">Стул офисный</a></td>
+                                                    <td><a class="text-white" href="#">Стіл для обідів</a></td>
                                                     <td>2</td>
-                                                    <td>30.00 $</td>
-                                                    <td>60.00 $</td>
+                                                    <td>730.00 $</td>
+                                                    <td>1460.00 $</td>
                                                     
                                                 </tr>
                                             </tbody>

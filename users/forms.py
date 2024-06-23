@@ -1,5 +1,6 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
+from django.db.models import F
 
 from users.models import User
 
@@ -104,3 +105,71 @@ class UserRegistrationForm(UserCreationForm):
     #         }
     #     )
     # )
+
+
+class ProfileForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = (
+            "image",
+            "first_name",
+            "last_name",
+            "username",
+            "email",
+        )
+
+    # compact version
+    image = forms.ImageField(required=False)
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    username = forms.CharField()
+    email = forms.CharField()
+
+    # """extended version"""
+    #
+    # image = forms.ImageField(
+    #     widget=forms.FileInput(
+    #         attrs={
+    #             "class": "form-control mt-3"
+    #         }
+    #     ),
+    #     required=False
+    # )
+    #
+    # fist_name = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть ваше ім'я"
+    #         }
+    #     )
+    # )
+    #
+    # last_name = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть ваше прізвище"
+    #         }
+    #     )
+    # )
+    #
+    # username = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть iм'я користувача"
+    #         }
+    #     )
+    # )
+    #
+    # email = forms.CharField(
+    #     widget=forms.EmailInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть вашу електронну пошту"
+    #         }
+    #     )
+    # )
+
+
