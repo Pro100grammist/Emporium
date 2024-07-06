@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{% static 'css/my_footer_css.css'%}">
 {% endblock  %}
 
+{% block modal_window %}
+{% include "includes/basket_btn.html" %}
+{% endblock modal_window %}
+
 {% block content %}
     <h1 class="mt-5 pt-5 emp-title"><strong>{{ brandname }}</strong></h1>
     <p class="emp-description"><strong>{{ content }}</strong></p>

@@ -22,7 +22,6 @@ class Basket(models.Model):
     session_key = models.CharField(max_length=32, blank=True, null=True)
     created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name="Дата додавання")
 
-
     class Meta:
         verbose_name = "Basket"
         verbose_name_plural = "Baskets"

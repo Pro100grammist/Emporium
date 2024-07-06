@@ -19,7 +19,9 @@ def login(request):
             if user:
                 auth.login(request, user)
                 messages.success(request, f"{username}, Ви увійшли до свого акаунту")
-                if request.GET.get('next', None):
+                redirect_page = request.POST.get('next', None)
+
+                if redirect_page and redirect_page != reverse('user:logout'):
                     return HttpResponseRedirect(request.GET.get('next'))
                 return HttpResponseRedirect(reverse('main:home'))
     else:
@@ -79,3 +81,7 @@ def logout(request):
         'title': 'Home - Вихід'
     }
     return redirect(reverse('main:home'))
+
+
+def cart(request):
+    return render(request, 'users/cart.html')
