@@ -94,9 +94,11 @@
                     <div class="container" id="cart-items-container">
                         {% include "includes/included_basket.html" %}
                     </div>
-                    <a class="btn btn-dark" href="orders/create_order.html">
-                        Оформити замовлення
-                    </a>
+                    {% if baskets %}
+                        <a class="btn btn-dark" href="orders/create_order.html">
+                            Зробити замовлення
+                        </a>
+                    {% endif %}
                 </div>
             </div>
 
