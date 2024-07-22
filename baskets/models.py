@@ -29,7 +29,10 @@ class Basket(models.Model):
     objects = BasketQueryset().as_manager()
 
     def __str__(self):
-        return f'Корзина {self.user.username} | Товар {self.product.name} | Кількість {self.amount}'
+        if self.user:
+            return f'Корзина {self.user.username} | Товар {self.product.name} | Кількість {self.amount}'
+        else:
+            return f'Корзина без користувача | Товар {self.product.name} | Кількість {self.amount}'
 
     def get_absolute_url(self):
         return reverse("Basket_detail", kwargs={"pk": self.pk})
