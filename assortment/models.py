@@ -36,6 +36,7 @@ class Products(models.Model):
     def discount_price(self):
         return self.price if not self.discount else round(self.price * (1 - self.discount / 100), 2)
 
+
     def __str__(self):
         return f'{self.name} Amount : {self.amount}'
     

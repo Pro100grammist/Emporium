@@ -49,10 +49,11 @@ def registration(request):
             form.save()
             session_key = request.session.session_key
             user = form.instance
-            auth.login(request, user)
 
             if session_key:
-                Basket.objects.filter(session_key=session_key.update(user=user))
+                Basket.objects.filter(session_key=session_key).update(user=user)
+
+            auth.login(request, user)
             messages.success(request, f"{user.username}, реєстрація на сайті пройшла успішно!")
             return HttpResponseRedirect(reverse('main:home'))
     else:

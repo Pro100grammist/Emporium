@@ -25,7 +25,7 @@
                     {% include "includes/included_basket.html" %}
                 </div>
                 {% if baskets %}
-                <a class="btn btn-dark" href="orders/create_order.html">
+                <a class="btn btn-dark" href="{% url 'orders:create_order' %}">
                     Зробити замовлення
                 </a>
                 {% endif %}
